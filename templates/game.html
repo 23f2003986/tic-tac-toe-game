@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="bg-[#1a1a2e] text-[#E0E0E0] flex flex-col items-center justify-center min-h-screen p-4 font-sans overflow-hidden">
+<body class="bg-[#1a1a2e] text-[#E0E0E0] flex flex-col items-center justify-center min-h-screen p-4 font-sans">
     
-    <div class="bg-[#2c3e50] p-6 rounded-xl shadow-2xl w-full max-w-lg mx-auto flex flex-col min-h-[90vh]">
+    <div class="bg-[#2c3e50] p-8 rounded-xl shadow-2xl w-full max-w-lg mx-auto flex flex-col min-h-[90vh]">
         
         <header class="flex justify-between items-start mb-4">
             <div class="flex flex-col text-left text-[#E0E0E0]">
                 <h1 class="text-4xl font-bold tracking-tight">Project XerO</h1>
-                <h2 class="text-xl font-semibold mt-1">Tic-Tac-Toe</h2>
+                <h2 class="text-xl font-semibold opacity-70 mt-1">Tic-Tac-Toe</h2>
             </div>
             
             <div class="flex space-x-2">
@@ -44,19 +44,19 @@
                 </div>
                 <div class="modal-body">
                     <p>Welcome to Project XerO, where this classic gameplay meets a modern twist. This web app turns a simple game into a delightful experience, 
-                        blending a sleek UI with a challenging AI opponent - one that is not so easy to beat. This is my first web app passion project. <br><br>
-                        Developed & designed by Vian Khemka, with assistance from an AI co-pilot. To connect or drop feedback, reach me at viankhemka145@gmail.com!</p>
+                        blending a sleek UI with a challenging AI opponent - one that is not so easy to beat. This is my first web app passion project.
+                        <br><br>Developed & designed by Vian Khemka, with assistance from an AI co-pilot. To connect or drop feedback, reach me at viankhemka145@gmail.com!.</p>
                 </div>
             </div>
         </div>
 
-        <div class="flex justify-around items-center text-center text-xl font-semibold mb-4">
+        <div class="flex justify-around items-center text-center text-lg font-semibold mb-4">
             <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
-                Player X <br>
+                Player <br>
                 <span id="player-score" class="text-2xl font-bold text-[#00A7E1]">0</span>
             </div>
             <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
-                AI O <br>
+                AI <br>
                 <span id="ai-score" class="text-2xl font-bold text-[#FF5757]">0</span>
             </div>
             <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
