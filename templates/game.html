@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-[#1a1a2e] text-[#E0E0E0] flex flex-col items-center justify-center min-h-screen p-4 font-sans overflow-hidden">
+    
+    <div class="bg-[#2c3e50] p-6 rounded-xl shadow-2xl max-w-lg w-full flex flex-col h-[90vh]">
+        
+        <header class="flex justify-between items-start mb-4">
+            <div class="flex flex-col text-left text-[#E0E0E0]">
+                <h1 class="text-4xl font-bold tracking-tight">Project XerO</h1>
+                <h2 class="text-xl font-semibold opacity-70 mt-1">Tic-Tac-Toe</h2>
+            </div>
+            
+            <div class="flex space-x-2">
+                <button id="mute-sfx-button" class="action-button relative p-3 rounded-md">
+                    <i class="fa-solid fa-volume-high text-xl sfx-icon"></i>
+                    <i class="fa-solid fa-slash text-xl sfx-slash hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                </button>
+                <button id="mute-music-button" class="action-button relative p-3 rounded-md">
+                    <i class="fa-solid fa-music text-xl music-icon"></i>
+                    <i class="fa-solid fa-slash text-xl music-slash absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                </button>
+                <button id="about-button" class="action-button p-3 rounded-md">
+                    <i class="fa-solid fa-info text-xl"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="about-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+            <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-80"></div>
+            <div class="modal-content z-50 bg-[#2c3e50] w-11/12 md:max-w-md mx-auto rounded-xl shadow-lg p-6">
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">About</p>
+                    <button class="modal-close-button px-3 py-1 text-2xl font-bold leading-none">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Welcome to Project XerO, where this classic gameplay meets a modern twist. This web app turns a simple game into a delightful experience,
+                        blending a sleek UI with a challenging AI opponent - one that is not so easy to beat. This is my first web app passion project.
+                        <br><br>Developed & designed by Vian Khemka, with assistance from an AI co-pilot. To connect or drop feedback, reach me at viankhemka145@gmail.com!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-around items-center text-center text-xl font-semibold mb-4">
+            <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
+                Player X <br>
+                <span id="player-score" class="text-2xl font-bold text-[#00A7E1]">0</span>
+            </div>
+            <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
+                AI O <br>
+                <span id="ai-score" class="text-2xl font-bold text-[#FF5757]">0</span>
+            </div>
+            <div class="p-2 rounded-lg w-1/4 border-2 border-[#34495e]">
+                Draws <br>
+                <span id="draw-score" class="text-2xl font-bold text-[#E0E0E0]">0</span>
+            </div>
+        </div>
+
+        <p id="game-status" class="text-center text-xl font-semibold mb-4 flex-grow">Player X's turn.</p>
+        
+        <div id="game-board-container" class="flex-none">
+            <div id="game-board" class="grid grid-cols-3 gap-2 mx-auto">
+                </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+            <button id="reset-scores-button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+                Reset Scores
+            </button>
+            <button id="reset-button" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+                Reset Game
+            </button>
+        </div>
+
+        <audio id="clickSound" src="{{ url_for('static', filename='audio/click.mp3') }}" preload="auto"></audio>
+        <audio id="winSound" src="{{ url_for('static', filename='audio/win.mp3') }}" preload="auto"></audio>
+        <audio id="bgMusic" src="{{ url_for('static', filename='audio/bg_music.mp3') }}" loop></audio>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</body>
+</html>

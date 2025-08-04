@@ -1,0 +1,111 @@
+/* --- General Styles --- */
+
+body {
+    height: 100vh;
+}
+
+/* --- Keyframe Animations --- */
+
+@keyframes draw-line {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@keyframes winning-glow {
+    0% { box-shadow: 0 0 5px #00A7E1, 0 0 10px #00A7E1; }
+    50% { box-shadow: 0 0 10px #00A7E1, 0 0 20px #00A7E1; }
+    100% { box-shadow: 0 0 5px #00A7E1, 0 0 10px #00A7E1; }
+}
+
+/* --- Game Board Styles --- */
+
+#game-board {
+    width: 320px;
+    height: 320px;
+}
+
+.board-cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #E0E0E0;
+    background-color: #2c3e50;
+    border: 2px solid #34495e;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.board-cell:hover {
+    transform: scale(1.05);
+    background-color: #34495e;
+}
+
+.board-cell.x-marker {
+    color: #00A7E1;
+}
+
+.board-cell.o-marker {
+    color: #FF5757;
+}
+
+/* --- Button Styles --- */
+
+/* Standardize the icon buttons to be rounded squares */
+.action-button {
+    background-color: #34495e;
+    color: #E0E0E0;
+    border-radius: 8px; /* Rounded corners for a square shape */
+    width: 44px; /* Standardize size */
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.action-button:hover {
+    background-color: #4a5568;
+    transform: scale(1.1);
+}
+
+.action-button .fa-solid {
+    pointer-events: none;
+}
+
+/* --- Modal Styles --- */
+
+.modal-content {
+    animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Utility Classes --- */
+
+.winning-line {
+    position: absolute;
+    background-color: #00A7E1;
+    height: 5px;
+    z-index: 10;
+    transition: transform 0.5s ease-out;
+    animation: draw-line 0.5s forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+.fa-slash {
+    position: absolute;
+    color: #f87171;
+    font-size: 30px;
+    transform: rotate(-10deg);
+}
