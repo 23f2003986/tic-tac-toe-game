@@ -19,14 +19,17 @@ body {
 
 /* --- Game Board Styles --- */
 
+/* Make the board responsive */
 #game-board {
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
 }
 
+/* FIX: The cells will now maintain a fixed square shape */
 .board-cell {
-    width: 100px;
-    height: 100px;
+    /* Use aspect-ratio to ensure the cell is always square */
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,8 +62,8 @@ body {
 .action-button {
     background-color: #34495e;
     color: #E0E0E0;
-    border-radius: 8px; /* Rounded corners for a square shape */
-    width: 44px; /* Standardize size */
+    border-radius: 8px;
+    width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
